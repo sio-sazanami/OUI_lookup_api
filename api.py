@@ -9,6 +9,7 @@ with open(path, mode='r') as json_f:
     @app.get('/{oui}')
     async def search_vendor(oui: str):
         oui = oui.upper()
+        oui = oui.replace(':','')
         if oui in oui_dict.keys():
             return oui_dict[oui] 
         else:
